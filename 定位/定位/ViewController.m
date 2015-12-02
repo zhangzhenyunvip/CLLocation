@@ -34,6 +34,7 @@
         [self.locationManager requestAlwaysAuthorization];
     }
     
+    /// iOS 9.0 新特性
     if ([UIDevice currentDevice].systemVersion.floatValue >= 9.0) {
         self.locationManager.allowsBackgroundLocationUpdates = YES;
     }
@@ -48,12 +49,19 @@
     
     // 设置精准度
     self.locationManager.desiredAccuracy = kCLLocationAccuracyKilometer;
+    
+    /// 比较两个位置之间的距离
+    // 聊城
+    CLLocation *location1 = [[CLLocation alloc]initWithLatitude:36.45 longitude:115.97];
+    // 北京
+    CLLocation *location2 = [[CLLocation alloc] initWithLatitude:40.2 longitude:116.2];
+    
+    CGFloat distance = [location2 distanceFromLocation:location1];
 
+    NSLog(@"distamce: %f",distance / 1000);
 }
 
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations{
-
-    
     
     CLLocation *location = locations.firstObject;
     
