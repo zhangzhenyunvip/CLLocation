@@ -28,6 +28,16 @@
         
         [self.locationManager requestWhenInUseAuthorization];
     }
+    
+    if ([self.locationManager respondsToSelector:@selector(requestAlwaysAuthorization)]) {
+        
+        [self.locationManager requestAlwaysAuthorization];
+    }
+    
+    if ([UIDevice currentDevice].systemVersion.floatValue >= 9.0) {
+        self.locationManager.allowsBackgroundLocationUpdates = YES;
+    }
+    
     // 3. 设置代理
     self.locationManager.delegate = self;
     // 4. 开始定位
@@ -48,9 +58,7 @@
     CLLocation *location = locations.firstObject;
     
     NSLog(@"latitede:%f,longtitude:%f",location.coordinate.latitude,location.coordinate.longitude);
-    
-    [self.locationManager stopUpdatingLocation];
-    
+   
 }
 
 - (void)didReceiveMemoryWarning {
