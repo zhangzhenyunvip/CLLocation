@@ -7,8 +7,12 @@
 //
 
 #import "ViewController.h"
+#import <corelocation/CoreLocation.h>
 
-@interface ViewController ()
+
+@interface ViewController () <CLLocationManagerDelegate>
+
+@property (nonatomic, strong) CLLocationManager *locationManager;
 
 @end
 
@@ -16,7 +20,31 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+  // 导入CoreLocation
+    // 1. 创建CLLocationManager管理器
+    self.locationManager = [[CLLocationManager alloc] init];
+    // 2. 请求授权,配置plist
+    if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
+        
+        [self.locationManager requestWhenInUseAuthorization];
+    }
+    // 3. 设置代理
+    self.locationManager.delegate = self;
+    // 4. 开始定位
+    [self.locationManager startUpdatingLocation];
+
+}
+
+-(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations{
+
+    
+    
+    CLLocation *location = locations.firstObject;
+    
+    NSLog(@"latitede:%f,longtitude:%f",location.coordinate.latitude,location.coordinate.longitude);
+    
+    [self.locationManager stopUpdatingLocation];
+    
 }
 
 - (void)didReceiveMemoryWarning {

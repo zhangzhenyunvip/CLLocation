@@ -64,11 +64,6 @@
 				04EEBF161C0F104100053964 /* AppDelegate.m */,
 				04EEBF181C0F104100053964 /* ViewController.h */,
 				04EEBF191C0F104100053964 /* ViewController.m */,
-				04EEBF1B1C0F104100053964 /* Main.storyboard */,
-				04EEBF211C0F104100053964 /* Assets.xcassets */,
-				04EEBF231C0F104100053964 /* LaunchScreen.storyboard */,
-				04EEBF261C0F104100053964 /* Info.plist */,
-				04EEBF1E1C0F104100053964 /* __.xcdatamodeld */,
 				04EEBF121C0F104100053964 /* Supporting Files */,
 			);
 			path = "定位";
@@ -77,6 +72,11 @@
 		04EEBF121C0F104100053964 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				04EEBF1B1C0F104100053964 /* Main.storyboard */,
+				04EEBF211C0F104100053964 /* Assets.xcassets */,
+				04EEBF231C0F104100053964 /* LaunchScreen.storyboard */,
+				04EEBF261C0F104100053964 /* Info.plist */,
+				04EEBF1E1C0F104100053964 /* __.xcdatamodeld */,
 				04EEBF131C0F104100053964 /* main.m */,
 			);
 			name = "Supporting Files";
