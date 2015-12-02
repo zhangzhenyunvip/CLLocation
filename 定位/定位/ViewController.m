@@ -32,6 +32,12 @@
     self.locationManager.delegate = self;
     // 4. 开始定位
     [self.locationManager startUpdatingLocation];
+    
+    // 距离筛选器
+    self.locationManager.distanceFilter = 10;
+    
+    // 设置精准度
+    self.locationManager.desiredAccuracy = kCLLocationAccuracyKilometer;
 
 }
 
